@@ -39,6 +39,25 @@ namespace Robo_Tupiniquim
                     break;
             }
         }
+        public void GirarParaEsquerda()
+        {
+            switch (direcao)
+            {
+                case "N":
+                    direcao = "O";
+                    break;
+                case "O":
+                    direcao = "S";
+                    break;
+                case "S":
+                    direcao = "L";
+                    break;
+                case "L":
+                    direcao = "N";
+                    break;
+
+            }
+        }
         public void MoverParaFrente()
         {
             switch (direcao)
@@ -68,6 +87,10 @@ namespace Robo_Tupiniquim
             {
                 switch (entradaComandos[i])
                 {
+                    case 'E':
+                        GirarParaEsquerda();
+                        break;
+
                     case 'D':
                         GirarParaDireita();
                         break;
