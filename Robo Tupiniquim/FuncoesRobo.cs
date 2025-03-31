@@ -72,19 +72,27 @@ namespace Robo_Tupiniquim
             {
                 case "N":
                     if (eixoY + 1 <= valorMaximoY)
-                    eixoY += 1;
+                        eixoY += 1;
+                    else
+                        Console.WriteLine("Atenção! O robô saiu dos limites estabelecidos!");
                     break;
                 case "L":
                     if (eixoX + 1 <= valorMaximoX)
-                  eixoX += 1;
+                        eixoX += 1;
+                    else
+                        Console.WriteLine("Atenção! O robô saiu dos limites estabelecidos!");
                     break;
                 case "S":
                     if (eixoY - 1 >= 0)
-                    eixoY -= 1;
+                        eixoY -= 1;
+                    else
+                        Console.WriteLine("Atenção! O robô saiu dos limites estabelecidos!");
                     break;
                 case "O":
                     if (eixoX - 1 >= 0)
-                    eixoX -= 1;
+                        eixoX -= 1;
+                    else
+                        Console.WriteLine("Atenção! O robô saiu dos limites estabelecidos!");
                     break;
                 default:
                     break;
