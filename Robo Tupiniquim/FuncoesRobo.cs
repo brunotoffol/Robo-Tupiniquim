@@ -21,6 +21,24 @@ namespace Robo_Tupiniquim
             Int32.TryParse(localizacao.Split(' ')[1], out eixoY);
             direcao = localizacao.Split(' ')[2];
         }
+        public void GirarParaDireita()
+        {
+            switch (direcao)
+            {
+                case "N":
+                    direcao = "L";
+                    break;
+                case "L":
+                    direcao = "S";
+                    break;
+                case "S":
+                    direcao = "O";
+                    break;
+                case "O":
+                    direcao = "N";
+                    break;
+            }
+        }
         public void MoverParaFrente()
         {
             switch (direcao)
@@ -50,6 +68,9 @@ namespace Robo_Tupiniquim
             {
                 switch (entradaComandos[i])
                 {
+                    case 'D':
+                        GirarParaDireita();
+                        break;
                     case 'M':
                         MoverParaFrente();
                         break;
