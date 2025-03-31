@@ -8,18 +8,14 @@ namespace Robo_Tupiniquim
 {
     class FuncoesRobo
     {
-        //variáveis do plano cartesiano (x,y) onde nosso robo vai andar
+
         public int eixoX;
         public int eixoY;
-        //Direcao Cardinal de movimento do robo
-        public string direcao;
 
-        //Limitando os valores de x e y para área de exploração do robô
+        public string direcao;
 
         private int valorMaximoX;
         private int valorMaximoY;
-
-        //Entrada dos valores
         public FuncoesRobo(string localizacao, int limiteAreaExploravelX, int limiteAreaExploravelY)
         {
             Int32.TryParse(localizacao.Split(' ')[0], out eixoX);
@@ -74,7 +70,7 @@ namespace Robo_Tupiniquim
                     if (eixoY + 1 <= valorMaximoY)
                         eixoY += 1;
                     else
-                        Console.WriteLine("Atenção! O robô saiu dos limites estabelecidos!");
+                        Console.WriteLine("\nAtenção! O robô saiu dos limites estabelecidos!");
                     break;
                 case "L":
                     if (eixoX + 1 <= valorMaximoX)
