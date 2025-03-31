@@ -14,12 +14,20 @@ namespace Robo_Tupiniquim
         //Direcao Cardinal de movimento do robo
         public string direcao;
 
+        //Limitando os valores de x e y para área de exploração do robô
+
+        private int valorMaximoX;
+        private int valorMaximoY;
+
         //Entrada dos valores
-        public FuncoesRobo(string localizacao)
+        public FuncoesRobo(string localizacao, int limiteAreaExploravelX, int limiteAreaExploravelY)
         {
             Int32.TryParse(localizacao.Split(' ')[0], out eixoX);
             Int32.TryParse(localizacao.Split(' ')[1], out eixoY);
             direcao = localizacao.Split(' ')[2];
+
+            valorMaximoX = limiteAreaExploravelX;
+            valorMaximoY = limiteAreaExploravelY;
         }
         public void GirarParaDireita()
         {
@@ -63,15 +71,19 @@ namespace Robo_Tupiniquim
             switch (direcao)
             {
                 case "N":
+                    if (eixoY + 1 <= valorMaximoY)
                     eixoY += 1;
                     break;
                 case "L":
-                    eixoX += 1;
+                    if (eixoX + 1 <= valorMaximoX)
+                  eixoX += 1;
                     break;
                 case "S":
+                    if (eixoY - 1 >= 0)
                     eixoY -= 1;
                     break;
                 case "O":
+                    if (eixoX - 1 >= 0)
                     eixoX -= 1;
                     break;
                 default:
