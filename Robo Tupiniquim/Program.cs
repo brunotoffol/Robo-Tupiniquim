@@ -12,21 +12,36 @@
             int limiteAreaExploravelX = int.Parse(limites[0]);
             int limiteAreaExploravelY = int.Parse(limites[1]);
             
+            //Primeiro Robo
             Console.WriteLine("-------------------------------------------");
-            Console.Write("Digite as coordenadas iniciais do robô: ");
-            string posicaoInicial = Console.ReadLine();
+            Console.Write("Digite as coordenadas iniciais do primeiro robô: ");
+            string posicaoInicialRoboAlpha = Console.ReadLine();
             Console.WriteLine("-------------------------------------------");
 
+            FuncoesRobo roboAlpha = new FuncoesRobo(posicaoInicialRoboAlpha, limiteAreaExploravelX, limiteAreaExploravelY);
 
-            FuncoesRobo robo = new FuncoesRobo(posicaoInicial, limiteAreaExploravelX, limiteAreaExploravelY);
+            Console.Write("Digite a sequência de comandos para o primeiro robô: ");
+            string comandosRoboAlpha = Console.ReadLine();
 
-            Console.Write("Digite a sequência de comandos para o robô: ");
-            string comandos = Console.ReadLine();
+            roboAlpha.Movimento(comandosRoboAlpha);
 
-            robo.Movimento(comandos);
+            //Segundo Robo
 
             Console.WriteLine("-------------------------------------------");
-            Console.WriteLine($"Posição final do robô: {robo.eixoX} {robo.eixoY} {robo.direcao}");
+            Console.Write("Digite as coordenadas iniciais do segundo robô: ");
+            string posicaoInicialRoboBeta = Console.ReadLine();
+            Console.WriteLine("-------------------------------------------");
+
+            FuncoesRobo roboBeta = new FuncoesRobo(posicaoInicialRoboBeta, limiteAreaExploravelX, limiteAreaExploravelY);
+
+            Console.Write("Digite a sequência de comandos para o segundo robô: ");
+            string comandosRoboBeta = Console.ReadLine();
+            roboBeta.Movimento(comandosRoboBeta);           
+
+
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine($"Posição final do robô: {roboAlpha.eixoX} {roboAlpha.eixoY} {roboAlpha.direcao}");
+            Console.WriteLine($"Posição final do robô: {roboBeta.eixoX} {roboBeta.eixoY} {roboBeta.direcao}");
             Console.ReadLine();
         }
     }
