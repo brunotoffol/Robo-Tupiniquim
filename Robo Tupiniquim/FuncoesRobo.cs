@@ -120,5 +120,51 @@ namespace Robo_Tupiniquim
             }
 
         }
+        public static void EntradaDados(out int limiteAreaExploravelX, out int limiteAreaExploravelY)
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Comandos: 'M' para avançar, 'E' girar para a esquerda, 'D' girar para a Direita.");
+            Console.WriteLine("-------------------------------------------");
+            Console.Write("Digite o tamanho da área de exploração desejada: ");
+            string[] limites = Console.ReadLine().Split(' ');
+            limiteAreaExploravelX = int.Parse(limites[0]);
+            limiteAreaExploravelY = int.Parse(limites[1]);
+        }
+        public static void ExibirResultado(FuncoesRobo roboAlpha, FuncoesRobo roboBeta)
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine($"Posição final do robô: {roboAlpha.eixoX} {roboAlpha.eixoY} {roboAlpha.direcao}");
+            Console.WriteLine($"Posição final do robô: {roboBeta.eixoX} {roboBeta.eixoY} {roboBeta.direcao}");
+            Console.ReadLine();
+        }
+        public static FuncoesRobo RoboAlpha(int limiteAreaExploravelX, int limiteAreaExploravelY)
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.Write("Digite as coordenadas iniciais do primeiro robô: ");
+            string posicaoInicialRoboAlpha = Console.ReadLine();
+            Console.WriteLine("-------------------------------------------");
+
+            FuncoesRobo roboAlpha = new FuncoesRobo(posicaoInicialRoboAlpha, limiteAreaExploravelX, limiteAreaExploravelY);
+
+            Console.Write("Digite a sequência de comandos para o primeiro robô: ");
+            string comandosRoboAlpha = Console.ReadLine();
+
+            roboAlpha.Movimento(comandosRoboAlpha);
+            return roboAlpha;
+        }
+        public static FuncoesRobo RoboBeta(int limiteAreaExploravelX, int limiteAreaExploravelY)
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.Write("Digite as coordenadas iniciais do segundo robô: ");
+            string posicaoInicialRoboBeta = Console.ReadLine();
+            Console.WriteLine("-------------------------------------------");
+
+            FuncoesRobo roboBeta = new FuncoesRobo(posicaoInicialRoboBeta, limiteAreaExploravelX, limiteAreaExploravelY);
+
+            Console.Write("Digite a sequência de comandos para o segundo robô: ");
+            string comandosRoboBeta = Console.ReadLine();
+            roboBeta.Movimento(comandosRoboBeta);
+            return roboBeta;
+        }
     }
 }
